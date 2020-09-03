@@ -1,5 +1,9 @@
-package com.factorybean.factorybean;
+package com.factorybean.factorybean.creational;
 
+import com.factorybean.factorybean.creational.FactoryBeanAppConfig;
+import com.factorybean.factorybean.creational.abstractfactory.prototype.NoSingleUserFactory;
+import com.factorybean.factorybean.creational.abstractfactory.singleton.SingleUserFactory;
+import com.factorybean.factorybean.creational.factory.UserFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -13,27 +17,13 @@ import javax.annotation.Resource;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = FactoryBeanAppConfig.class)
-public class factoryBeanIntegrationTest {
+public class FactoryBeanIntegrationTest {
 
     @Resource(name = "&user")
     private UserFactory userFactory;
 
     @Resource(name = "&user1")
     private UserFactory userFactory1;
-
-
-    @Resource(name = "&singletonUser")
-    private SingleUserFactory singleUserFactory;
-
-    @Resource(name = "&singletonUser")
-    private SingleUserFactory singleUserFactory1;
-
-
-    @Resource(name = "&noSingletonUser")
-    private NoSingleUserFactory noSingleUserFactory;
-
-    @Resource(name = "&noSingletonUser")
-    private NoSingleUserFactory noSingleUserFactory1;
 
     @Test
     public void testUserFactory() {
@@ -47,6 +37,12 @@ public class factoryBeanIntegrationTest {
         assertFalse(userFactory1.isSingleton());
     }
 
+    @Resource(name = "&singletonUser")
+    private SingleUserFactory singleUserFactory;
+
+    @Resource(name = "&singletonUser")
+    private SingleUserFactory singleUserFactory1;
+
     @Test
     public void testSingleUserFactory() {
         assertThat(singleUserFactory.getUserId(), equalTo(1));
@@ -58,13 +54,18 @@ public class factoryBeanIntegrationTest {
         assertTrue(singleUserFactory1.isSingleton());
     }
 
+    @Resource(name = "&noSingletonUser")
+    private NoSingleUserFactory noSingleUserFactory;
+
+    @Resource(name = "&noSingletonUser")
+    private NoSingleUserFactory noSingleUserFactory1;
+
     @Test
     public void testNoSingleUserFactory() {
         assertThat(noSingleUserFactory.getUserId(), equalTo(0));
         assertThat(noSingleUserFactory.getFactoryId(), equalTo(2020));
         assertThat(noSingleUserFactory1.getUserId(), equalTo(0));
         assertThat(noSingleUserFactory1.getFactoryId(), equalTo(2020));
-        assertNotSame(noSingleUserFactory.getFactoryId(),noSingleUserFactory1.getFactoryId());
         assertFalse(noSingleUserFactory.isSingleton());
         assertFalse(noSingleUserFactory1.isSingleton());
     }

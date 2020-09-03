@@ -3,7 +3,7 @@
        xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="noSingletonUser" class="com.factorybean.factorybean.NoSingleUserFactory">
+    <bean id="noSingletonUser" class="com.factorybean.factorybean.creational.abstractfactory.prototype.NoSingleUserFactory">
         <property name="factoryId" value="2020"/>
         <property name="userId" value="0"/>
     </bean>

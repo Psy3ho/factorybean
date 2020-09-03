@@ -1,5 +1,6 @@
-package com.factorybean.factorybean;
+package com.factorybean.factorybean.creational.factory;
 
+import com.factorybean.factorybean.creational.User;
 import org.springframework.beans.factory.FactoryBean;
 
 /*

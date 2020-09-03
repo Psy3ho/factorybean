@@ -1,16 +1,16 @@
-package com.factorybean.factorybean;
+package com.factorybean.factorybean.creational.abstractfactory.singleton;
 
+import com.factorybean.factorybean.creational.User;
 import org.springframework.beans.factory.config.AbstractFactoryBean;
 
-public class NoSingleUserFactory extends AbstractFactoryBean<User> {
+/*
+    Produce objects of the type User -- singleton - default value
+ */
+
+public class SingleUserFactory extends AbstractFactoryBean<User> {
 
     private int factoryId;
     private int userId;
-
-
-    public NoSingleUserFactory(){
-        setSingleton(false);
-    }
 
     public int getFactoryId() {
         return factoryId;
@@ -30,7 +30,7 @@ public class NoSingleUserFactory extends AbstractFactoryBean<User> {
 
     @Override
     public Class<?> getObjectType() {
-        return  User.class;
+        return User.class;
     }
 
     @Override

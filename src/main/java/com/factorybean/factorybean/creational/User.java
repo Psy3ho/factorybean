@@ -1,4 +1,4 @@
-package com.factorybean.factorybean;
+package com.factorybean.factorybean.creational;
 
 public class User {
     private int id;

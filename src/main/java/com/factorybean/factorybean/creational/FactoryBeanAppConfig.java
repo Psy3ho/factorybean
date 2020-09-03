@@ -1,5 +1,8 @@
-package com.factorybean.factorybean;
+package com.factorybean.factorybean.creational;
 
+import com.factorybean.factorybean.creational.abstractfactory.prototype.NoSingleUserFactory;
+import com.factorybean.factorybean.creational.abstractfactory.singleton.SingleUserFactory;
+import com.factorybean.factorybean.creational.factory.UserFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -12,6 +15,11 @@ public class FactoryBeanAppConfig {
         factory.setFactoryId(7070);
         factory.setUserId(2);
         return factory;
+    }
+
+    @Bean
+    public User user() throws Exception {
+        return userFactory().getObject();
     }
 
     @Bean(name = "user1")
