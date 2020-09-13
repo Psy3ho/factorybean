@@ -16,7 +16,7 @@ import static org.junit.Assert.assertEquals;
 public class ProxyPatternIntegrationTest {
 
     @Test
-    public void testProxyPattern() throws Exception{
+    public void testProxyPattern(){
 
         Logger fooLogger = (Logger) LoggerFactory.getLogger(MobileImpl.class);
         ListAppender<ILoggingEvent> listAppender = new ListAppender<>();

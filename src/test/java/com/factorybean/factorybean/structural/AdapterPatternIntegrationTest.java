@@ -2,8 +2,6 @@ package com.factorybean.factorybean.structural;
 
 import com.factorybean.factorybean.structural.adapter.*;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import static org.junit.Assert.*;
 

@@ -7,5 +7,5 @@ public abstract class Car {
         this.color = color;
     }
 
-    abstract public  String paint();
+    abstract public String paint();
 }
